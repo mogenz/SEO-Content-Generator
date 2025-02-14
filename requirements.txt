@@ -1,6 +1,4 @@
 streamlit
 openai
 pyperclip
-smtplib
-email.message
-datetime
+python-dotenv
