@@ -16,7 +16,7 @@ sender_email = st.secrets["email"]["sender_email"]
 receiver_email = st.secrets["email"]["receiver_email"]
 app_password = st.secrets["email"]["app_password"]
 smtp_server = st.secrets["smtp"]["server"]
-smtp_port = st.secrets["smtp"]["port"]
+smtp_port = int(st.secrets["smtp"]["port"])
 
 # UI for sidebar options
 with st.sidebar:
