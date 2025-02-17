@@ -129,7 +129,7 @@ elif st.session_state["show_contact"]:
 
         try:
             msg = EmailMessage()
-            msg.set_content(user_message)
+            msg.set_content(email_body)
             msg["Subject"] = email_subject
             msg["From"] = sender_email
             msg["To"] = receiver_email
