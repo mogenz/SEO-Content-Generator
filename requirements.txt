@@ -3,3 +3,5 @@ openai
 pyperclip
 python-dotenv
 BeautifulSoup
+urljoin
+urlparse
