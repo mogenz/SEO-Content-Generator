@@ -1,7 +1,6 @@
+python-dotenv
 streamlit
 openai
-pyperclip
-python-dotenv
+requests
 beautifulsoup4
-urljoin
-urlparse
+pyperclip
