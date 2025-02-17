@@ -16,7 +16,7 @@ sender_email = st.secrets["email"]["sender_email"]
 receiver_email = st.secrets["email"]["receiver_email"]
 app_password = st.secrets["email"]["app_password"]
 smtp_server = st.secrets["smtp"]["server"]
-smtp_port = int(st.secrets["smtp"]["port"])
+smtp_port = st.secrets["smtp"]["port"]
 
 # UI for sidebar options
 with st.sidebar:
@@ -129,21 +129,22 @@ elif st.session_state["show_contact"]:
 
         try:
             msg = EmailMessage()
-            msg.set_content(message)
-            msg["Subject"] = subject
+            msg.set_content(user_message)
+            msg["Subject"] = email_subject
             msg["From"] = sender_email
             msg["To"] = receiver_email
 
-            with smtplib.SMTP_SSL(smtp_server, smtp_port) as smtp:
+            with smtplib.SMTP(smtp_server, smtp_port) as smtp:
                 smtp.starttls()
                 smtp.login(sender_email, app_password)
                 smtp.send_message(msg)
 
             st.success("✅ Your feedback has been sent successfully! Thank you for your contribution. 🚀")
 
-        except Exception:
+        except Exception as e:
             st.error("❌ Sorry, something went wrong while sending your feedback. Please try again later.")
-
+            st.error(f"Error Details: {e}")
+    
     if st.button("🔙 Back", use_container_width=True):
         st.session_state["show_contact"] = False
 
