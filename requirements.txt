@@ -2,6 +2,6 @@ streamlit
 openai
 pyperclip
 python-dotenv
-BeautifulSoup
+beautifulsoup4
 urljoin
 urlparse
